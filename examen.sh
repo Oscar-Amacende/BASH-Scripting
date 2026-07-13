@@ -4,7 +4,7 @@ mkdir final_project
 cd final_project
 git clone https://github.com/Oscar-Amacende/oaqjp-final-project-emb-ai
 #touch emotion_detection.py
-cst << 'EOF' > emotion_detection.py
+cat << 'EOF' > emotion_detection.py
 import requests
 
 #Funcion de detección de emociones
