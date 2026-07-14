@@ -46,7 +46,11 @@ python3 -m pip install requests
 
 #Importamos la aplicacion
 python3 -c 'from emotion_detection import emotion_detector; print(emotion_detector("I love this new technology"))' > 2b_application_creation
-#python3 -c "from emotion_detection import emotion_detector" >2b_application_creation.txt
-#Logs de importacion
-#python3 -c 'resultado = emotion_detector("I love this new technology")'
-#python3 -c 'resultado = emotion_detector("I love this new technology")' >>2b_application_creation.txt
+echo "Salida de programa : \n\n"
+cat 2b_application_creation
+
+#Agregamos la biblioteca de json
+sed -i '/import requests/a import json' emotion_detection.py
+
+#Agregar al programa   ahora sed si modifica el archivo
+sed -i '/return response.text/i\ \tresponse_dict = json.loads(response.text)\print(response_dict)' emotion_detection.py
