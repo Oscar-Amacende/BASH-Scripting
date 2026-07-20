@@ -54,3 +54,6 @@ sed -i '/import requests/a import json' emotion_detection.py
 
 #Agregar al programa   ahora sed si modifica el archivo
 sed -i '/return response.text/i\ \tresponse_dict = json.loads(response.text)\print(response_dict)' emotion_detection.py
+
+#para JsonDumps
+sed -i '/return response.text/a\ \tprint(json.dumps(response.text))' emotion_detection.py
