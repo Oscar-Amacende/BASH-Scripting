@@ -46,6 +46,9 @@ python3 -m pip install requests
 
 #Importamos la aplicacion
 python3 -c 'from emotion_detection import emotion_detector; print(emotion_detector("I love this new technology"))' > 2b_application_creation
+
+#Salida del paso 3 
+python3 -c 'from emotion_detection import emotion_detector; print(emotion_detector("I am so happy I am doing this."))' > 3b_formatted_output_test
 echo "Salida de programa : \n\n"
 cat 2b_application_creation
 
@@ -57,3 +60,10 @@ sed -i '/return response.text/i\ \tresponse_dict = json.loads(response.text)\pri
 
 #para JsonDumps
 sed -i '/return response.text/a\ \tprint(json.dumps(response.text))' emotion_detection.py
+
+#para la tarea 3
+cat 2b_application_creation | jq > 3a_output_formatting
+
+#Tarea 4 
+git push origin main
+python3 -c 'from emotion_detection import emotion_detector' > 4b_packaging_test
